@@ -13,15 +13,23 @@
 
 // solution
 let maxProfit = function (prices) {
-  let buy = prices[0];
-  let maxProfit = 0;
-  for (let i = 0; i < prices.length; i++) {
+  // Initialize variables to keep track of the minimum price to buy and the maximum profit achievable.
+  let buy = prices[0]; // Initialize buy as the price on the first day.
+  let maxProfit = 0; // Initialize maxProfit as 0.
+
+  // Iterate through the array of prices, starting from the second day.
+  for (let i = 1; i < prices.length; i++) {
+    // Check if the profit gained by selling on the current day is greater than the maximum profit.
     if (prices[i] - buy > maxProfit) {
-      maxProfit = prices[i] - buy;
+      maxProfit = prices[i] - buy; // Update maxProfit with the new higher profit.
     }
+
+    // Check if the current day's price is lower than the previously known minimum buy price.
     if (prices[i] < buy) {
-      buy = prices[i];
+      buy = prices[i]; // Update the minimum buy price to the current day's price.
     }
   }
+
+  // Return the maximum profit achieved.
   return maxProfit;
 };
