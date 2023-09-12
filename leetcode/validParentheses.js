@@ -40,3 +40,28 @@ function isValid(s) {
   // If there are, the string is invalid; otherwise, it's valid
   return stack.length === 0;
 }
+
+// alternate solution (best one)
+const pairs = {
+  "(": ")",
+  "[": "]",
+  "{": "}",
+};
+
+var isValid = function (s) {
+  for (var i = 0; i < s.length; i++) {
+    if (i == s.length) {
+      break;
+    }
+
+    //s[i] //first letter
+    //s[i+1] //next letter
+    //pairs[s[i]] //i give them first letter return me  matching value
+
+    if (s[i] in pairs && s[i + 1] !== pairs[s[i]]) {
+      return false;
+    }
+  }
+
+  return true;
+};
