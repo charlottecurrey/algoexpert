@@ -65,3 +65,28 @@ var isValid = function (s) {
 
   return true;
 };
+
+// another solution
+
+var isValid = function (s) {
+  let i = 0; //0 2 4
+  while (i < s.length) {
+    if (parentheses.charAt(0) === s.charAt(i)) {
+      if (parentheses.charAt(1) !== s.charAt(i + 1)) {
+        return false;
+      }
+      i = i + 2;
+    } else if (square.charAt(0) === s.charAt(i)) {
+      if (square.charAt(1) !== s.charAt(i + 1)) {
+        return false;
+      }
+      i = i + 2;
+    } else if (braces.charAt(0) === s.charAt(i)) {
+      if (braces.charAt(1) !== s.charAt(i + 1)) {
+        return false;
+      }
+      i += 2;
+    }
+  }
+  return true;
+};
